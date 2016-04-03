@@ -8,6 +8,8 @@
         android:id="@+id/chat_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"
         android:layout_above="@+id/message_edit_text">
     </ListView>
 
