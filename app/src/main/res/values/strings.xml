@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Chatik</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="frontdoor_title">Chatik</string>
+    <string name="sign_up_button_text">GET STARTED</string>
+    <string name="sign_in_button_text">LOG IN</string>
+    <string name="login_button_text">SIGN IN</string>
+    <string name="login_edit_title_text">NICKNAME</string>
+    <string name="password_edit_title_text">PASSWORD</string>
+    <string name="ip_edit_title_text">IP</string>
+    <string name="port_edit_title_text">PORT</string>
+    <string name="connect_button_text">CONNECT</string>
+    <string name="server_connection_error">Can\'t connect to server</string>
+    <string name="port_format_error">Incorrect port</string>
+    <string name="send_message_button_text">SEND</string>
+    <string name="server_connection_lost">Connection is lost</string>
+
+</resources>
