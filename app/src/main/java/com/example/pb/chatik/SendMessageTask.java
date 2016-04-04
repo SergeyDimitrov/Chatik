@@ -8,7 +8,7 @@ public class SendMessageTask extends AsyncTask<String, Void, Void> {
 
     @Override
     protected Void doInBackground(String... params) {
-        String message = params[0];
+        String message = UserData.nickname + ": " + params[0];
         try {
             PrintWriter messageWriter = new PrintWriter(SocketData.chatSocket.getOutputStream());
             messageWriter.print(message);

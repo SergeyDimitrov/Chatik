@@ -15,6 +15,7 @@ public class ConnectActivity extends AppCompatActivity {
 
     private EditText mIpEditText;
     private EditText mPortEditText;
+    private EditText mNicknameEditText;
     private Button mConnectButton;
 
     private BroadcastReceiver chatServiceCastReceiver = new BroadcastReceiver() {
@@ -38,13 +39,16 @@ public class ConnectActivity extends AppCompatActivity {
 
         mIpEditText = (EditText) findViewById(R.id.ip_edit_text);
         mPortEditText = (EditText) findViewById(R.id.port_edit_text);
+        mNicknameEditText = (EditText) findViewById(R.id.nickname_edit_text);
         mConnectButton = (Button) findViewById(R.id.connect_button);
 
         mConnectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    startService(getChatServiceIntent());
+                    if (checkNickname()) {
+                        startService(getChatServiceIntent());
+                    }
                 } catch (NumberFormatException e) {
                     Toast.makeText(ConnectActivity.this, R.string.port_format_error, Toast.LENGTH_LONG).show();
                 }
@@ -68,6 +72,16 @@ public class ConnectActivity extends AppCompatActivity {
         Intent chatServiceIntent = new Intent(ConnectActivity.this, ChatService.class);
         chatServiceIntent.putExtra(ChatService.IP_ADDRESS_KEY, mIpEditText.getText().toString());
         chatServiceIntent.putExtra(ChatService.PORT_KEY, Integer.parseInt(mPortEditText.getText().toString()));
+        chatServiceIntent.putExtra(ChatService.NICKNAME_KEY, mNicknameEditText.getText().toString());
         return chatServiceIntent;
+    }
+
+    private boolean checkNickname() {
+        if (mNicknameEditText.getText() == null
+                || mNicknameEditText.getText().toString().equals("")) {
+            Toast.makeText(this, R.string.empty_nickname_error, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }

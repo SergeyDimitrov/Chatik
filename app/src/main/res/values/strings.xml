@@ -17,5 +17,7 @@
     <string name="send_message_button_text">SEND</string>
     <string name="server_connection_lost">Connection is lost</string>
     <string name="enter_message_hint">Enter your message here</string>
+    <string name="empty_nickname_error">Nickname should not be empty</string>
+    <string name="nickname_edit_title_text">NICKNAME</string>
 
 </resources>
